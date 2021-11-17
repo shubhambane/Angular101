@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -8,13 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   email!: string;
   password!: string;
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(private router: Router) {}
 
-  onLogin() {
-    if (!this.email) {
-      alert('Login data missing!');
-    } else alert('User Logged!')
+   ngOnInit(): void {}
+
+  logUser(pageName: string): void {
+    this.router.navigate([`${pageName}`]);
   }
 }
